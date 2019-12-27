@@ -8,9 +8,15 @@ window.addEventListener("load", function() {
   
   Counter.prototype.render = function() {
     const { count } = this.state;
-    return React.createElement(React.Fragment, null, 
+    /* return React.createElement(React.Fragment, null, 
     React.createElement("button", {onClick:this.handleClick}, '+1'),
-    React.createElement("p", null, count))
+    React.createElement("p", null, count)) */
+    return (
+      <React.Fragment>
+        <button onClick={this.handleClick}>+1</button>
+        <p>{count}</p>
+      </React.Fragment>
+    )
   }
   
   Counter.prototype.handleClick = function() {
@@ -21,7 +27,7 @@ window.addEventListener("load", function() {
   Object.setPrototypeOf(Counter.prototype, React.Component.prototype);
 
   ReactDOM.render(
-    React.createElement(Counter, null),
+    <Counter/>,
     document.getElementById("root")
   )
 });
